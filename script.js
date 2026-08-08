@@ -18,6 +18,24 @@ const paintings = [
     medium: "Acrylic on canvas",
     description: ""
   },
+    {
+    image: "what-stayed-behind.jpg",
+    title: "What Stayed Behind",
+    status: "Sold",
+    price: "350 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+    {
+    image: "be-back-soon.jpg",
+    title: "Be Back Soon",
+    status: "Sold",
+    price: "650 USD (Shipping included)",
+    size: "18 × 24 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
    {
     image: "velvet-night.jpg",
     title: "Velvet Night",
