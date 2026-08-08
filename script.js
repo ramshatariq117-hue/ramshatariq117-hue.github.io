@@ -19,7 +19,7 @@ const paintings = [
     description: ""
   },
     {
-    image: "twilight-ride.jpg",
+    image: "twilight-ride.JPG",
     title: "Twilight Ride",
     status: "Sold",
     price: "300 USD (Shipping included)",
