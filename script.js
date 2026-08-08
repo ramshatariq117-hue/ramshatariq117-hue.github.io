@@ -19,6 +19,42 @@ const paintings = [
     description: ""
   },
    {
+    image: "the-inevitable.jpg",
+    title: "The Inevitable",
+    status: "Sold",
+    price: "600 USD (Shipping included)",
+    size: "18 × 24 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
+    image: "the-warmth-in-the-cold.jpg",
+    title: "The Warmth in the Cold",
+    status: "Sold",
+    price: "350 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
+    image: "a-passing-memory.jpg",
+    title: "A Passing Memory",
+    status: "Sold",
+    price: "600 USD (Shipping included)",
+    size: "18 × 24 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
+    image: "solace-in-the-storm.jpg",
+    title: "Solace in the Storm",
+    status: "Sold",
+    price: "320 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
     image: "ill-leave-the-lights-on.jpg",
     title: "I'll Leave The Lights On",
     status: "Sold",
