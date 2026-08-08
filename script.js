@@ -18,6 +18,33 @@ const paintings = [
     medium: "Acrylic on canvas",
     description: ""
   },
+   {
+    image: "blue-silence.JPG",
+    title: "Blue Silence",
+    status: "Sold",
+    price: "300 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
+    image: "soft-radiance.JPG",
+    title: "Soft Radiance",
+    status: "Sold",
+    price: "300 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
+    image: "arrive.JPG",
+    title: "Arrive",
+    status: "Sold",
+    price: "270 USD (Shipping included)",
+    size: "12 × 12 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
     {
     image: "twilight-ride.JPG",
     title: "Twilight Ride",
