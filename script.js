@@ -19,7 +19,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "the-inevitable.jpg",
+    image: "the-inevitable.JPG",
     title: "The Inevitable",
     status: "Sold",
     price: "600 USD (Shipping included)",
