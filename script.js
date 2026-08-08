@@ -37,15 +37,6 @@ const paintings = [
     description: ""
   },
    {
-    image: "glow-in-the-blue.jpg",
-    title: "Glow in the Blue",
-    status: "Sold",
-    price: "320 USD (Shipping included)",
-    size: "12 × 18 inches",
-    medium: "Oil on canvas",
-    description: ""
-  },
-   {
     image: "that-one-day.jpg",
     title: "That One Day",
     status: "Sold",
