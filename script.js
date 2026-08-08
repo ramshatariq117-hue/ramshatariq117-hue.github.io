@@ -19,6 +19,42 @@ const paintings = [
     description: ""
   },
    {
+    image: "velvet-night.jpg",
+    title: "Velvet Night",
+    status: "Sold",
+    price: "320 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
+    image: "the-slumbering-blue.jpg",
+    title: "The Slumbering Blue",
+    status: "Sold",
+    price: "320 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
+    image: "glow-in-the-blue.jpg",
+    title: "Glow in the Blue",
+    status: "Sold",
+    price: "320 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
+    image: "that-one-day.jpg",
+    title: "That One Day",
+    status: "Sold",
+    price: "350 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
     image: "the-inevitable.JPG",
     title: "The Inevitable",
     status: "Sold",
