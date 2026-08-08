@@ -19,6 +19,33 @@ const paintings = [
     description: ""
   },
    {
+    image: "ill-leave-the-lights-on.JPG",
+    title: "I'll Leave The Lights On",
+    status: "Sold",
+    price: "600 USD (Shipping included)",
+    size: "18 × 24 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
+    image: "crimson-haze.JPG",
+    title: "Crimson Haze",
+    status: "Sold",
+    price: "300 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
+    image: "the-last-train.JPG",
+    title: "The Last Train",
+    status: "Sold",
+    price: "270 USD (Shipping included)",
+    size: "12 × 12 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
     image: "blue-silence.JPG",
     title: "Blue Silence",
     status: "Sold",
