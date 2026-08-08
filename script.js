@@ -19,7 +19,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "ill-leave-the-lights-on.JPG",
+    image: "ill-leave-the-lights-on.jpg",
     title: "I'll Leave The Lights On",
     status: "Sold",
     price: "600 USD (Shipping included)",
