@@ -28,7 +28,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "luminous-pause.jpg",
+    image: "luminous-pause.JPG",
     title: "Luminous Pause",
     status: "Sold",
     price: "300 USD (Shipping included)",
