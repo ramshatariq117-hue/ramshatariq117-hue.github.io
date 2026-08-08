@@ -18,13 +18,22 @@ const paintings = [
     medium: "Acrylic on canvas",
     description: ""
   },
+    {
+    image: "twilight-ride.jpg",
+    title: "Twilight Ride",
+    status: "Sold",
+    price: "300 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
   {
     image: "forgotten-echoes.jpg",
     title: "Forgotten Echoes",
     status: "Sold",
     price: "300 USD (Shipping included)",
     size: "12 × 12 inches",
-    medium: "Acrylic on canvas",
+    medium: "Oil on canvas",
     description: ""
   },
    {
@@ -33,7 +42,7 @@ const paintings = [
     status: "Sold",
     price: "300 USD (Shipping included)",
     size: "12 × 12 inches",
-    medium: "Acrylic on canvas",
+    medium: "Oil on canvas",
     description: ""
   },
    {
@@ -42,7 +51,7 @@ const paintings = [
     status: "Sold",
     price: "300 USD (Shipping included)",
     size: "12 × 18 inches",
-    medium: "Acrylic on canvas",
+    medium: "Oil on canvas",
     description: ""
   }
 ];
