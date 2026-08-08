@@ -28,7 +28,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "soft-radiance.JPG",
+    image: "soft-radiance.jpg",
     title: "Soft Radiance",
     status: "Sold",
     price: "300 USD (Shipping included)",
