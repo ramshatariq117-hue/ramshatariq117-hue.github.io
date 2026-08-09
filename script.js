@@ -172,7 +172,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "quiet-passage.JPG",
+    image: "quiet passage.JPG",
     title: "Quiet Passage",
     status: "Sold",
     price: "350 USD (Shipping included)",
