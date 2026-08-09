@@ -10,9 +10,9 @@ IMPORTANT:
 
 const paintings = [
  {
-    image: "the-orange-hour.jpg",
+    image: "the-orange-hour.JPG",
     title: "The Orange Hour",
-    status: "Sold",
+    status: "Available",
     price: "200 USD (Shipping included)",
     size: "10 × 10 inches",
     medium: "Acrylic on canvas",
@@ -28,12 +28,12 @@ const paintings = [
     description: ""
   },
    {
-    image: "the-last-house-standing.jpg",
+    image: "the-last-house-standing.JPG",
     title: "The Last House Standing",
     status: "Sold",
     price: "550 USD (Shipping included)",
     size: "18 × 24 inches",
-    medium: "Oil on canvas",
+    medium: "Acrylic on canvas",
     description: ""
   },
    {
@@ -64,12 +64,12 @@ const paintings = [
     description: ""
   },
    {
-    image: "shelter-in-the-mist.jpg",
+    image: "shelter-in-the-mist.JPG",
     title: "Shelter in the Mist",
     status: "Sold",
     price: "400 USD (Shipping included)",
     size: "12 × 18 inches",
-    medium: "Oil on canvas",
+    medium: "Acrylic on canvas",
     description: ""
   },
    {
@@ -91,7 +91,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "fading-rose.jpg",
+    image: "fading-rose.JPG",
     title: "Fading Rose",
     status: "Sold",
     price: "150 USD (Shipping included)",
@@ -127,7 +127,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "late-summer-hours.jpg",
+    image: "late-summer-hours.JPG",
     title: "Late Summer Hours",
     status: "Sold",
     price: "350 USD (Shipping included)",
@@ -154,7 +154,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "a-warm-winter-night.jpg",
+    image: "a-warm-winter-night.JPG",
     title: "A Warm Winter Night",
     status: "Sold",
     price: "230 USD (Shipping included)",
@@ -172,7 +172,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "quiet-passage.jpg",
+    image: "quiet-passage.JPG",
     title: "Quiet Passage",
     status: "Sold",
     price: "350 USD (Shipping included)",
