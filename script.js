@@ -55,7 +55,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "someone-is-watching.jpg",
+    image: "someone-is-watching.JPG",
     title: "Someone is Watching",
     status: "Sold",
     price: "550 USD (Shipping included)",
