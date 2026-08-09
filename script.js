@@ -271,7 +271,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "hushed-in-green.jpg",
+    image: "hushed-in-green.JPG",
     title: "Hushed In Green",
     status: "Sold",
     price: "300 USD (Shipping included)",
