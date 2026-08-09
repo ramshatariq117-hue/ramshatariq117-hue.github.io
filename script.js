@@ -535,8 +535,7 @@ function openPainting(index) {
   qs("#modal-medium").textContent = p.medium;
   qs("#modal-description").textContent = p.description || "";
 
-  modal.dataset.paintingIndex = index;
-modal.classList.add("open");
+  modal.classList.add("open");
 modal.setAttribute("aria-hidden", "false");
 document.body.classList.add("modal-open");
 }
@@ -552,45 +551,12 @@ function closePainting() {
 function setupModal() {
 const modal = qs("#painting-modal");
 if (!modal) return;
-
 qs("#modal-close").addEventListener("click", closePainting);
-
-qs("#modal-prev").addEventListener("click", (event) => {
-event.stopPropagation();
-const currentIndex = Number(modal.dataset.paintingIndex);
-const previousIndex = (currentIndex - 1 + paintings.length) % paintings.length;
-openPainting(previousIndex);
-});
-
-qs("#modal-next").addEventListener("click", (event) => {
-event.stopPropagation();
-const currentIndex = Number(modal.dataset.paintingIndex);
-const nextIndex = (currentIndex + 1) % paintings.length;
-openPainting(nextIndex);
-});
-
 modal.addEventListener("click", (event) => {
 if (event.target === modal) closePainting();
 });
-
 document.addEventListener("keydown", (event) => {
-if (!modal.classList.contains("open")) return;
-
-if (event.key === "Escape") {
-closePainting();
-}
-
-if (event.key === "ArrowLeft") {
-const currentIndex = Number(modal.dataset.paintingIndex);
-const previousIndex = (currentIndex - 1 + paintings.length) % paintings.length;
-openPainting(previousIndex);
-}
-
-if (event.key === "ArrowRight") {
-const currentIndex = Number(modal.dataset.paintingIndex);
-const nextIndex = (currentIndex + 1) % paintings.length;
-openPainting(nextIndex);
-}
+if (event.key === "Escape") closePainting();
 });
 }
 
