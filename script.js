@@ -199,7 +199,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "soft-glow.jpg",
+    image: "soft-glolw.jpg",
     title: "Soft Glow",
     status: "Sold",
     price: "350 USD (Shipping included)",
