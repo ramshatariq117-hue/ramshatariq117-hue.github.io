@@ -190,7 +190,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "silent-frost.jpg",
+    image: "silent-frost.JPG",
     title: "Silent Frost",
     status: "Sold",
     price: "250 USD (Shipping included)",
