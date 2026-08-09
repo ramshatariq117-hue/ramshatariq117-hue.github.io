@@ -9,13 +9,310 @@ IMPORTANT:
 */
 
 const paintings = [
-  {
+ {
+    image: "the-orange-hour.jpg",
+    title: "The Orange Hour",
+    status: "Sold",
+    price: "200 USD (Shipping included)",
+    size: "10 × 10 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
     image: "through-the-silence.JPG",
     title: "Through the Silence",
-    status: "Available",
+    status: "Sold",
     price: "450 USD (Shipping included)",
     size: "16 × 16 inches",
     medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
+    image: "the-last-house-standing.jpg",
+    title: "The Last House Standing",
+    status: "Sold",
+    price: "550 USD (Shipping included)",
+    size: "18 × 24 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
+    image: "do-not-knock.jpg",
+    title: "Do Not Knock",
+    status: "Sold",
+    price: "600 USD (Shipping included)",
+    size: "18 × 24 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
+    image: "night-watcher.jpg",
+    title: "Night Watcher",
+    status: "Sold",
+    price: "350 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
+    image: "someone-is-watching.jpg",
+    title: "Someone is Watching",
+    status: "Sold",
+    price: "550 USD (Shipping included)",
+    size: "18 × 24 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
+    image: "shelter-in-the-mist.jpg",
+    title: "Shelter in the Mist",
+    status: "Sold",
+    price: "400 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
+    image: "the-staying.jpg",
+    title: "The Staying",
+    status: "Sold",
+    price: "350 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
+    image: "warm-night.jpg",
+    title: "Warm Night",
+    status: "Sold",
+    price: "350 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
+    image: "fading-rose.jpg",
+    title: "Fading Rose",
+    status: "Sold",
+    price: "150 USD (Shipping included)",
+    size: "12 × 12 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
+    image: "silent-street.jpg",
+    title: "Silent Street",
+    status: "Sold",
+    price: "230 USD (Shipping included)",
+    size: "12 × 12 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
+    image: "the-quiet-hour.jpg",
+    title: "The Quiet Hour",
+    status: "Sold",
+    price: "350 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
+    image: "quiet-arrival.jpg",
+    title: "Quiet Arrival",
+    status: "Sold",
+    price: "600 USD (Shipping included)",
+    size: "18 × 24 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
+    image: "late-summer-hours.jpg",
+    title: "Late Summer Hours",
+    status: "Sold",
+    price: "350 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
+    image: "quiet-haven.jpg",
+    title: "Quiet Haven",
+    status: "Sold",
+    price: "600 USD (Shipping included)",
+    size: "18 × 24 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
+    image: "the-quiet-house.jpg",
+    title: "The Quiet House",
+    status: "Sold",
+    price: "600 USD (Shipping included)",
+    size: "18 × 24 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
+    image: "a-warm-winter-night.jpg",
+    title: "A Warm Winter Night",
+    status: "Sold",
+    price: "230 USD (Shipping included)",
+    size: "12 × 12 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
+    image: "when-the-world-sleeps.jpg",
+    title: "When The World Sleeps",
+    status: "Sold",
+    price: "500 USD (Shipping included)",
+    size: "18 × 24 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
+    image: "quiet-passage.jpg",
+    title: "Quiet Passage",
+    status: "Sold",
+    price: "350 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
+    image: "you-were-expected.jpg",
+    title: "You Were Expected",
+    status: "Sold",
+    price: "500 USD (Shipping included)",
+    size: "16 × 16 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
+    image: "silent-frost.jpg",
+    title: "Silent Frost",
+    status: "Sold",
+    price: "250 USD (Shipping included)",
+    size: "10 × 10 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
+    image: "soft-glow.jpg",
+    title: "Soft Glow",
+    status: "Sold",
+    price: "350 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
+    image: "sweet-melancholy.jpg",
+    title: "Sweet Melancholy",
+    status: "Sold",
+    price: "400 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
+    image: "winter-blues.jpg",
+    title: "Winter Blues",
+    status: "Sold",
+    price: "350 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
+    image: "the-pink-hour.jpg",
+    title: "The Pink Hour",
+    status: "Sold",
+    price: "350 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
+    image: "crimson-road.jpg",
+    title: "Crimson Road",
+    status: "Sold",
+    price: "350 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
+    image: "a-familiar-night.jpg",
+    title: "A Familiar Night",
+    status: "Sold",
+    price: "350 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
+    image: "no-one-passing.jpg",
+    title: "No One Passing",
+    status: "Sold",
+    price: "600 USD (Shipping included)",
+    size: "18 × 24 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
+    image: "above-the-quiet.jpg",
+    title: "Above the Quiet",
+    status: "Sold",
+    price: "230 USD (Shipping included)",
+    size: "10 × 10 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
+    image: "hushed-in-green.jpg",
+    title: "Hushed In Green",
+    status: "Sold",
+    price: "300 USD (Shipping included)",
+    size: "14 × 14 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
+    image: "the-familiar-warmth.jpg",
+    title: "The Familiar Warmth",
+    status: "Sold",
+    price: "550 USD (Shipping included)",
+    size: "18 × 18 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
+    image: "into-the-stillness.jpg",
+    title: "Into The Stillness",
+    status: "Sold",
+    price: "350 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
+    image: "red-echo.jpg",
+    title: "Red Echo",
+    status: "Sold",
+    price: "320 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Oil on canvas",
+    description: ""
+  },
+   {
+    image: "sweet-remembrance.jpg",
+    title: "Sweet Remembrance",
+    status: "Sold",
+    price: "350 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Oil on canvas",
     description: ""
   },
     {
