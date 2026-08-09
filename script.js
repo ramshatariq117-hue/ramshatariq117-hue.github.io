@@ -91,7 +91,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "fading-rose.JPG",
+    image: "fading rose.JPG",
     title: "Fading Rose",
     status: "Sold",
     price: "150 USD (Shipping included)",
@@ -100,7 +100,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "silent-street.jpg",
+    image: "silent street.jpg",
     title: "Silent Street",
     status: "Sold",
     price: "230 USD (Shipping included)",
@@ -109,7 +109,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "the-quiet-hour.jpg",
+    image: "the quiet hour.jpg",
     title: "The Quiet Hour",
     status: "Sold",
     price: "350 USD (Shipping included)",
