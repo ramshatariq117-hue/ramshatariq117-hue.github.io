@@ -510,7 +510,7 @@ function renderGallery() {
       </button>
       <div class="art-caption">
         <h2>${escapeHTML(p.title)}</h2>
-        <p>${escapeHTML(p.size)} · ${escapeHTML(p.medium)}</p>
+        <p>${escapeHTML(p.size)} · ${escapeHTML(p.price.split(" USD")[0])} USD</p>
         <p class="art-status">${escapeHTML(p.status)}</p>
       </div>
     </article>
