@@ -535,9 +535,44 @@ function openPainting(index) {
   qs("#modal-medium").textContent = p.medium;
   qs("#modal-description").textContent = p.description || "";
 
+  // Create a clean price for the personalized messages
+  const cleanPrice = p.price
+    .replace(/\s*\(Shipping included\)/i, "")
+    .replace(/\s*USD/i, "")
+    .trim();
+
+  const displayPrice = `$${cleanPrice}`;
+
+  // Personalized WhatsApp message
+  const whatsappMessage =
+    `Hi! I’m interested in purchasing “${p.title}” (${p.size}), listed at ${displayPrice} on your website. How do I move forward with the purchase?`;
+
+  qs("#modal-whatsapp").href =
+    `https://wa.me/923200961510?text=${encodeURIComponent(whatsappMessage)}`;
+
+  // Personalized email
+  const emailSubject = `Inquiry about “${p.title}”`;
+
+  const emailBody =
+    `Hi Ramsha,\n\n` +
+    `I’m interested in purchasing “${p.title}” (${p.size}), listed at ${displayPrice} on your website. How do I move forward with the purchase?\n\n` +
+    `Thank you!`;
+
+  qs("#modal-email").href =
+    `mailto:ramshatariq117@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+
+  // Change wording depending on availability
+  const contactHeading = qs("#modal-contact-heading");
+
+  if (p.status.toLowerCase() === "available") {
+    contactHeading.textContent = "Interested in purchasing this artwork?";
+  } else {
+    contactHeading.textContent = "Have a question about this artwork?";
+  }
+
   modal.classList.add("open");
-modal.setAttribute("aria-hidden", "false");
-document.body.classList.add("modal-open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
 }
 
 function closePainting() {
