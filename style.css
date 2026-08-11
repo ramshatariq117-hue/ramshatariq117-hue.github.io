@@ -65,7 +65,6 @@ a{color:inherit}button{font:inherit}img{max-width:100%}
 .art-image-button{width:100%;display:block;padding:0;margin:0;border:0;background:transparent;color:inherit;text-align:inherit;cursor:pointer}
 .art-image-wrap{position:relative;overflow:hidden;background:#101010;border:1px solid rgba(244,240,216,.13);box-shadow:0 13px 35px rgba(0,0,0,.28);transition:border-color .35s ease,box-shadow .35s ease,transform .35s ease}
 .art-image-button:hover .art-image-wrap{border-color:rgba(169,37,49,.58);box-shadow:0 20px 48px rgba(0,0,0,.40);transform:translateY(-3px)}
-.art-image-wrap::before{content:"";position:absolute;z-index:2;top:0;left:0;width:36px;height:2px;background:var(--crimson-bright)}
 .art-image-wrap::after{content:"";position:absolute;z-index:2;inset:0;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.24)}
 .art-image-wrap img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1),opacity .45s ease}
 .art-image-button:hover .art-image-wrap img{transform:scale(1.028);opacity:.86}
