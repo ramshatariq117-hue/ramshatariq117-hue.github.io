@@ -647,9 +647,7 @@ function setupNavigation() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  renderGallery();
-  setupModal();
-  setupNavigation();
-  routeFromHash();
-});
+renderGallery();
+setupModal();
+setupNavigation();
+routeFromHash();
