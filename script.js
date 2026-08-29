@@ -507,8 +507,8 @@ function renderGallery() {
           <img
   src="${p.image}"
   alt="${escapeHTML(p.title)}"
-  width="${p.size.split('×')[0].trim() * 100}"
-height="${p.size.split('×')[1].replace(' inches','').trim() * 100}"
+  width="${p.size.split('×')[0].trim()}"
+height="${p.size.split('×')[1].replace(' inches','').trim()}"
   loading="${i === 0 ? 'eager' : 'lazy'}"
   fetchpriority="${i === 0 ? 'high' : 'auto'}"
 >
