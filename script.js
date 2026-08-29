@@ -500,11 +500,19 @@ function renderGallery() {
   const gallery = qs("#gallery");
   if (!gallery) return;
 
-  gallery.innerHTML = paintings.map((p, i) => `
+  gallery.innerHTML = paintings.map((p, i) => {
+    const dimensions = p.size.match(/(\d+)\s*[×x]\s*(\d+)/i);
+    const width = dimensions ? dimensions[1] : 4;
+    const height = dimensions ? dimensions[2] : 5;
+
+    return `
     <article class="art-card">
       <button class="art-image-button" type="button" data-painting="${i}" aria-label="View ${escapeHTML(p.title)}">
         <div class="art-image-wrap">
-         <img src="${p.image}" alt="${escapeHTML(p.title)}" width="4" height="5" loading="${i === 0 ? 'eager' : 'lazy'}" fetchpriority="${i === 0 ? 'high' : 'auto'}">
+          <img src="${p.image}" alt="${escapeHTML(p.title)}"
+            width="${width}" height="${height}"
+            loading="${i === 0 ? 'eager' : 'lazy'}"
+            fetchpriority="${i === 0 ? 'high' : 'auto'}">
           <span class="view-art">View artwork</span>
         </div>
       </button>
@@ -514,13 +522,13 @@ function renderGallery() {
         <p class="art-status">${escapeHTML(p.status)}</p>
       </div>
     </article>
-  `).join("");
+  `;
+  }).join("");
 
   gallery.querySelectorAll(".art-image-button").forEach(button => {
     button.addEventListener("click", () => openPainting(Number(button.dataset.painting)));
   });
 }
-
 function openPainting(index) {
   const p = paintings[index];
   const modal = qs("#painting-modal");
