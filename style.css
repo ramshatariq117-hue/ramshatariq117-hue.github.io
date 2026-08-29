@@ -133,7 +133,14 @@ a{color:inherit}button{font:inherit}img{max-width:100%}
 body.modal-open{overflow:hidden}
 .modal-box{position:relative;width:min(1080px,100%);max-height:92vh;overflow:auto;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);background:#090909;border:1px solid rgba(244,240,216,.19);border-top:2px solid var(--crimson-bright);box-shadow:0 25px 80px rgba(0,0,0,.7),0 0 0 1px rgba(120,16,25,.08)}
 .modal-image-wrap{background:#050505;display:flex;align-items:center;justify-content:center;min-height:500px}
-.modal-image{display:block;width:100%;max-height:82vh;object-fit:contain}
+.modal-image{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:4/5;
+  max-height:82vh;
+  object-fit:contain;
+}
 .modal-info{position:relative;padding:55px 45px;align-self:center;background:radial-gradient(circle at 100% 0,rgba(120,16,25,.13),transparent 42%),#090909}
 .modal-info::before{content:"ORIGINAL ARTWORK";display:block;margin-bottom:20px;font-family:var(--sans);font-size:9px;letter-spacing:.28em;color:var(--muted)}
 .modal-info h2{margin:0 0 30px;font-family:"Great Vibes",cursive;font-size:clamp(52px,6vw,78px);font-weight:400;line-height:1}
