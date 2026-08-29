@@ -504,7 +504,14 @@ function renderGallery() {
     <article class="art-card">
       <button class="art-image-button" type="button" data-painting="${i}" aria-label="View ${escapeHTML(p.title)}">
         <div class="art-image-wrap">
-          <img src="${p.image}" alt="${escapeHTML(p.title)}" loading="${i === 0 ? 'eager' : 'lazy'}" fetchpriority="${i === 0 ? 'high' : 'auto'}">
+          <img
+  src="${p.image}"
+  alt="${escapeHTML(p.title)}"
+  width="${p.size.split('×')[0].trim()}"
+  height="${p.size.split('×')[1].replace(' inches','').trim()}"
+  loading="${i === 0 ? 'eager' : 'lazy'}"
+  fetchpriority="${i === 0 ? 'high' : 'auto'}"
+>
           <span class="view-art">View artwork</span>
         </div>
       </button>
