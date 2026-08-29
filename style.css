@@ -191,7 +191,15 @@ a{color:inherit}button{font:inherit}img{max-width:100%}
   min-height:166px;
   contain:layout;
 }
-.footer p{margin:0;font-family:var(--sans);font-size:9px;color:var(--muted);letter-spacing:.16em;text-transform:uppercase}
+.footer p{
+  margin:0;
+  font-family:var(--sans);
+  font-size:9px;
+  line-height:12px;
+  color:var(--muted);
+  letter-spacing:.16em;
+  text-transform:uppercase
+}
 
 /* QUICK CONTACT BAR — 3 ITEMS, NO CHAT */
 .bottom-bar{position:fixed;z-index:100;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(3,1fr);background:rgba(244,240,216,.985);box-shadow:0 -8px 30px rgba(0,0,0,.45)}
