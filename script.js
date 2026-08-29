@@ -10,7 +10,7 @@ IMPORTANT:
 
 const paintings = [
  {
-    image: "the-orange-hour.JPG",
+    image: "the-orange-hour.jpg",
     title: "The Orange Hour",
     status: "Available",
     price: "200 USD (Shipping included)",
@@ -19,7 +19,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "through-the-silence.JPG",
+    image: "through-the-silence.jpg",
     title: "Through the Silence",
     status: "Sold",
     price: "450 USD (Shipping included)",
@@ -28,7 +28,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "the-last-house-standing.JPG",
+    image: "the-last-house-standing.jpg",
     title: "The Last House Standing",
     status: "Sold",
     price: "550 USD (Shipping included)",
@@ -55,7 +55,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "someone-is-watching.JPG",
+    image: "someone-is-watching.jpg",
     title: "Someone is Watching",
     status: "Sold",
     price: "550 USD (Shipping included)",
@@ -64,7 +64,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "shelter-in-the-mist.JPG",
+    image: "shelter-in-the-mist.jpg",
     title: "Shelter in the Mist",
     status: "Sold",
     price: "400 USD (Shipping included)",
@@ -91,7 +91,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "fading rose.JPG",
+    image: "fading rose.jpg",
     title: "Fading Rose",
     status: "Sold",
     price: "150 USD (Shipping included)",
@@ -127,7 +127,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "late-summer-hours.JPG",
+    image: "late-summer-hours.jpg",
     title: "Late Summer Hours",
     status: "Sold",
     price: "350 USD (Shipping included)",
@@ -154,7 +154,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "a-warm-winter-night.JPG",
+    image: "a-warm-winter-night.jpg",
     title: "A Warm Winter Night",
     status: "Sold",
     price: "230 USD (Shipping included)",
@@ -172,7 +172,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "quiet passage.JPG",
+    image: "quiet passage.jpg",
     title: "Quiet Passage",
     status: "Sold",
     price: "350 USD (Shipping included)",
@@ -190,7 +190,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "silent-frost.JPG",
+    image: "silent-frost.jpg",
     title: "Silent Frost",
     status: "Sold",
     price: "250 USD (Shipping included)",
@@ -271,7 +271,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "hushed-in-green.JPG",
+    image: "hushed-in-green.jpg",
     title: "Hushed In Green",
     status: "Sold",
     price: "300 USD (Shipping included)",
@@ -361,7 +361,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "the-inevitable.JPG",
+    image: "the-inevitable.jpg",
     title: "The Inevitable",
     status: "Sold",
     price: "600 USD (Shipping included)",
@@ -406,7 +406,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "crimson-haze.JPG",
+    image: "crimson-haze.jpg",
     title: "Crimson Haze",
     status: "Sold",
     price: "300 USD (Shipping included)",
@@ -415,7 +415,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "the-last-train.JPG",
+    image: "the-last-train.jpg",
     title: "The Last Train",
     status: "Sold",
     price: "270 USD (Shipping included)",
@@ -424,7 +424,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "blue-silence.JPG",
+    image: "blue-silence.jpg",
     title: "Blue Silence",
     status: "Sold",
     price: "300 USD (Shipping included)",
@@ -442,7 +442,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "arrive.JPG",
+    image: "arrive.jpg",
     title: "Arrive",
     status: "Sold",
     price: "270 USD (Shipping included)",
@@ -451,7 +451,7 @@ const paintings = [
     description: ""
   },
     {
-    image: "twilight-ride.JPG",
+    image: "twilight-ride.jpg",
     title: "Twilight Ride",
     status: "Sold",
     price: "300 USD (Shipping included)",
@@ -469,7 +469,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "luminous-pause.JPG",
+    image: "luminous-pause.jpg",
     title: "Luminous Pause",
     status: "Sold",
     price: "300 USD (Shipping included)",
