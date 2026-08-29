@@ -108,7 +108,14 @@ a{color:inherit}button{font:inherit}img{max-width:100%}
 .button:hover,.modal-contact:hover{background:var(--crimson);border-color:var(--crimson);color:var(--cream)}
 
 /* FOOTER */
-.footer{border-top:1px solid var(--line);background:#070707;padding:40px 25px 105px;text-align:center}
+.footer{
+  border-top:1px solid var(--line);
+  background:#070707;
+  padding:40px 25px 105px;
+  text-align:center;
+  min-height:120px;
+  contain:layout;
+}
 .footer p{margin:0;font-family:var(--sans);font-size:9px;color:var(--muted);letter-spacing:.16em;text-transform:uppercase}
 
 /* QUICK CONTACT BAR — 3 ITEMS, NO CHAT */
