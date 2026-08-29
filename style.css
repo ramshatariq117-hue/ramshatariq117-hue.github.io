@@ -91,18 +91,13 @@ a{color:inherit}button{font:inherit}img{max-width:100%}
   background:#101010;
   border:1px solid rgba(244,240,216,.13);
   box-shadow:0 13px 35px rgba(0,0,0,.28);
-  aspect-ratio:3 / 4;
-  display:flex;
-  align-items:center;
-  justify-content:center;
   transition:border-color .35s ease,box-shadow .35s ease,transform .35s ease;
 }
 
 .art-image-wrap img{
   display:block;
   width:100%;
-  height:100%;
-  object-fit:contain;
+  height:auto;
   transition:transform .35s ease,opacity .35s ease;
 }
 
