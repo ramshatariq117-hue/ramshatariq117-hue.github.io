@@ -30,7 +30,7 @@ a{color:inherit}button{font:inherit}img{max-width:100%}
   border-top:2px solid rgba(120,16,25,.9);border-bottom:1px solid var(--line);
 }
 .site-header::after{content:"";position:absolute;left:50%;bottom:-1px;width:74px;height:1px;transform:translateX(-50%);background:var(--crimson-bright)}
-.logo{display:inline-block;font-family:"Great Vibes",cursive;font-size:clamp(58px,7.2vw,92px);line-height:1;text-decoration:none;letter-spacing:.01em;transition:opacity .25s ease,color .25s ease}
+.logo{display:inline-block;font-family:"Great Vibes",cursive;font-size:clamp(58px,7.2vw,92px);line-height:1;text-decoration:none;letter-spacing:.01em;transition:opacity .25s ease,color .25s ease;font-synthesis:none}
 .logo:hover{color:#fffdf0}
 
 /* NAV */
