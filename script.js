@@ -503,7 +503,7 @@ function renderGallery() {
   gallery.innerHTML = paintings.map((p, i) => `
     <article class="art-card">
       <button class="art-image-button" type="button" data-painting="${i}" aria-label="View ${escapeHTML(p.title)}">
-        <div class="art-image-wrap">
+        <div class="art-image-wrap" style="aspect-ratio:${p.size.split('×')[0].trim()} / ${p.size.split('×')[1].replace(' inches','').trim()}">
           <img
   src="${p.image}"
   alt="${escapeHTML(p.title)}"
