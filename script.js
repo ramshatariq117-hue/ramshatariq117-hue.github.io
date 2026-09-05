@@ -18,6 +18,15 @@ const paintings = [
     medium: "Acrylic on canvas",
     description: ""
   },
+   {
+    image: "Amenoia.jpg",
+    title: "Anemoia",
+    status: "Available",
+    price: "300 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
  {
     image: "the-orange-hour.jpg",
     title: "The Orange Hour",
