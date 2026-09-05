@@ -589,7 +589,7 @@ function openPainting(index) {
   const contactHeading = qs("#modal-contact-heading");
 
   if (p.status.toLowerCase() === "available") {
-    contactHeading.textContent = "Interested in purchasing this artwork?";
+    contactHeading.textContent = "Interested in purchasing this artwork? Purchase below.";
   } else {
     contactHeading.textContent = "Have a question about this artwork?";
   }
