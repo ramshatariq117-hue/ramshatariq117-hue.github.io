@@ -19,7 +19,7 @@ const paintings = [
     description: ""
   },
    {
-    image: "Amenoia.jpg",
+    image: "Anemoia.jpg",
     title: "Anemoia",
     status: "Available",
     price: "300 USD (Shipping included)",
