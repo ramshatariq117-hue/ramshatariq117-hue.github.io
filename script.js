@@ -594,7 +594,7 @@ function openPainting(index) {
   if (p.status.toLowerCase() === "available") {
     contactHeading.textContent = "Interested in purchasing this artwork? Purchase below.";
   } else {
-    contactHeading.textContent = "Have a question about this artwork?";
+    contactHeading.textContent = "Interested in a recreation? Contact below.";
   }
 
   modal.classList.add("open");
