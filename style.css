@@ -150,7 +150,21 @@ a{color:inherit}button{font:inherit}img{max-width:100%}
 .art-caption h2{margin:0;font-size:25px;line-height:1.12;font-weight:500}
 .art-caption p{margin:6px 0 0;font-family:var(--sans);font-size:9px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
 .art-caption .art-status{color:var(--cream);margin-top:9px}
-.art-caption .art-status::before{content:"";display:inline-block;width:5px;height:5px;margin:0 7px 1px 0;border-radius:50%;background:var(--crimson-bright);box-shadow:0 0 7px rgba(169,37,49,.4)}
+.art-caption .art-status::before{
+  content:"";
+  display:inline-block;
+  width:5px;
+  height:5px;
+  margin:0 7px 1px 0;
+  border-radius:50%;
+  background:var(--crimson-bright);
+  box-shadow:0 0 7px rgba(169,37,49,.4);
+}
+
+.art-caption .art-status.status-available::before{
+  background:#4caf50;
+  box-shadow:0 0 7px rgba(76,175,80,.45);
+}
 
 /* INNER PAGES */
 .page{max-width:1050px;margin:auto;padding:100px 50px 130px}
