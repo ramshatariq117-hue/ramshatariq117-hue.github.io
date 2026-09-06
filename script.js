@@ -553,7 +553,10 @@ function openPainting(index) {
   qs("#modal-image").src = p.image;
   qs("#modal-image").alt = p.title;
   qs("#modal-title").textContent = p.title;
-  qs("#modal-status").textContent = p.status;
+  qs("#modal-status").textContent =
+  p.status.toLowerCase() === "sold"
+    ? "Sold · Open for commission"
+    : p.status;
   qs("#modal-price").textContent = p.price;
   qs("#modal-size").textContent = p.size;
   qs("#modal-medium").textContent = p.medium;
