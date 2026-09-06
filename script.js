@@ -508,6 +508,14 @@ const paintings = [
 
 const qs = (s) => document.querySelector(s);
 
+function trackClick(name) {
+  if (typeof gtag === "function") {
+    gtag("event", "site_click", {
+      click_name: name
+    });
+  }
+}
+
 function escapeHTML(value = "") {
   return String(value).replace(/[&<>"']/g, c => ({
     "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#039;"
@@ -542,8 +550,12 @@ height="${p.size.split('×')[1].replace(' inches','').trim() * 100}"
   `).join("");
 
   gallery.querySelectorAll(".art-image-button").forEach(button => {
-    button.addEventListener("click", () => openPainting(Number(button.dataset.painting)));
+  button.addEventListener("click", () => {
+    const index = Number(button.dataset.painting);
+    trackClick(`Painting: ${paintings[index].title}`);
+    openPainting(index);
   });
+});
 }
 function openPainting(index) {
   const p = paintings[index];
@@ -611,15 +623,33 @@ function closePainting() {
 }
 
 function setupModal() {
-const modal = qs("#painting-modal");
-if (!modal) return;
-qs("#modal-close").addEventListener("click", closePainting);
-modal.addEventListener("click", (event) => {
-if (event.target === modal) closePainting();
-});
-document.addEventListener("keydown", (event) => {
-if (event.key === "Escape") closePainting();
-});
+  const modal = qs("#painting-modal");
+  if (!modal) return;
+
+  qs("#modal-close").addEventListener("click", closePainting);
+
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) closePainting();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closePainting();
+  });
+
+  qs("#modal-whatsapp").addEventListener("click", () => {
+    const title = qs("#modal-title").textContent;
+    trackClick(`Painting inquiry: WhatsApp — ${title}`);
+  });
+
+  qs("#modal-email").addEventListener("click", () => {
+    const title = qs("#modal-title").textContent;
+    trackClick(`Painting inquiry: Email — ${title}`);
+  });
+
+  qs("#modal-instagram").addEventListener("click", () => {
+    const title = qs("#modal-title").textContent;
+    trackClick(`Painting inquiry: Instagram — ${title}`);
+  });
 }
 
 function showPage(page) {
@@ -660,11 +690,45 @@ function setupNavigation() {
 
   document.querySelectorAll("[data-page]").forEach(link => {
     link.addEventListener("click", () => {
+      trackClick(`Navigation: ${link.dataset.page}`);
       closePainting();
     });
   });
 
+  document.querySelectorAll(".contact-card").forEach(link => {
+    const label = link.querySelector("span:last-child")?.textContent.trim();
+
+    if (label) {
+      link.addEventListener("click", () => {
+        trackClick(`Contact: ${label}`);
+      });
+    }
+  });
+
+  document.querySelectorAll(".bottom-bar a").forEach(link => {
+    const label = link.textContent.trim();
+
+    link.addEventListener("click", () => {
+      trackClick(`Bottom bar: ${label}`);
+    });
+  });
+
+  document.querySelectorAll('a[href="https://ramsha-art-studio.beehiiv.com/"]').forEach(link => {
+    link.addEventListener("click", () => {
+      trackClick("Mailing list");
+    });
+  });
+
   const button = qs(".menu-button");
+  const menu = qs(".mobile-menu");
+
+  if (button && menu) {
+    button.addEventListener("click", () => {
+      const open = menu.classList.toggle("open");
+      button.setAttribute("aria-expanded", String(open));
+    });
+  }
+}
   const menu = qs(".mobile-menu");
   if (button && menu) {
     button.addEventListener("click", () => {
