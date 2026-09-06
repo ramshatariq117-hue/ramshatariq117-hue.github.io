@@ -536,7 +536,7 @@ height="${p.size.split('×')[1].replace(' inches','').trim() * 100}"
       <div class="art-caption">
         <h2>${escapeHTML(p.title)}</h2>
         <p>${escapeHTML(p.size)} · ${escapeHTML(p.price.split(" USD")[0])} USD</p>
-        <p class="art-status">${escapeHTML(p.status)}</p>
+        <p class="art-status ${p.status.toLowerCase() === "available" ? "status-available" : "status-sold"}">${escapeHTML(p.status)}</p>
       </div>
     </article>
   `).join("");
