@@ -340,14 +340,17 @@ body.modal-open{overflow:hidden}
 }
 .top-mailing {
   width: 100%;
-  box-sizing: border-box;
-  text-align: center;
-  padding: 9px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
   font-size: 0.82rem;
+  text-align: center;
 }
 
 .top-mailing a {
-  display: inline-block;
+  display: block;
+  text-align: center;
   text-decoration: none;
 }
 
