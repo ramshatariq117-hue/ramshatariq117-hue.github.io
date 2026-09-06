@@ -13,7 +13,7 @@ const paintings = [
     image: "at-home.jpg",
     title: "At Home",
     status: "Available",
-    price: "500 USD (Shipping included)",
+    price: "470 USD (Shipping included)",
     size: "18 × 24 inches",
     medium: "Acrylic on canvas",
     description: ""
