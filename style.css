@@ -338,3 +338,12 @@ body.modal-open{overflow:hidden}
     text-align:center;
   }
 }
+.top-mailing {
+  text-align: center;
+  padding: 7px 0;
+  font-size: 0.75rem;
+}
+
+.top-mailing a {
+  text-decoration: none;
+}
