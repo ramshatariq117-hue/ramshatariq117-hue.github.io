@@ -339,12 +339,15 @@ body.modal-open{overflow:hidden}
   }
 }
 .top-mailing {
+  width: 100%;
+  box-sizing: border-box;
   text-align: center;
   padding: 9px 0;
   font-size: 0.82rem;
 }
 
 .top-mailing a {
+  display: inline-block;
   text-decoration: none;
 }
 
