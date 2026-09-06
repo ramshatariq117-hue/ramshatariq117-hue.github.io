@@ -729,15 +729,7 @@ function setupNavigation() {
     });
   }
 }
-  const menu = qs(".mobile-menu");
-  if (button && menu) {
-    button.addEventListener("click", () => {
-      const open = menu.classList.toggle("open");
-      button.setAttribute("aria-expanded", String(open));
-    });
-  }
-}
-
+ 
 renderGallery();
 setupModal();
 setupNavigation();
