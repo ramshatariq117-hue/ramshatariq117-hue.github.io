@@ -340,10 +340,11 @@ body.modal-open{overflow:hidden}
 }
 .top-mailing {
   text-align: center;
-  padding: 7px 0;
-  font-size: 0.75rem;
+  padding: 9px 0;
+  font-size: 0.82rem;
 }
 
 .top-mailing a {
   text-decoration: none;
 }
+
