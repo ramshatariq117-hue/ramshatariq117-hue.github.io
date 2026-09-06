@@ -30,7 +30,7 @@ const paintings = [
    {
     image: "Anemoia.jpg",
     title: "Anemoia",
-    status: "Sold",
+    status: "Available",
     price: "300 USD (Shipping included)",
     size: "12 × 18 inches",
     medium: "Acrylic on canvas",
