@@ -518,6 +518,19 @@ function trackClick(name) {
 function notifyVisitor() {
   if (sessionStorage.getItem("visitorNotificationSent")) return;
 
+  // Anonymous visitor ID
+  let visitorId = localStorage.getItem("visitorId");
+
+  if (!visitorId) {
+    visitorId = Math.random().toString(36).substring(2, 7).toUpperCase();
+    localStorage.setItem("visitorId", visitorId);
+  }
+
+  // Total visits from this browser
+  let visitCount = Number(localStorage.getItem("visitorVisitCount") || 0);
+  visitCount++;
+  localStorage.setItem("visitorVisitCount", visitCount);
+
   const referrer = document.referrer;
   let source = "Direct";
 
@@ -549,7 +562,14 @@ function notifyVisitor() {
   if (window.location.hash === "#about") page = "About";
   else if (window.location.hash === "#contact") page = "Contact";
 
-  const message = `${source} · ${device} | ${page}`;
+ const visitType = visitCount === 1 ? "🆕 New visitor" : "🔄 Returning visitor";
+
+const message =
+  `${visitType}\n` +
+  `🆔 ${visitorId} · Visit #${visitCount}\n` +
+  `🌐 ${source}\n` +
+  `💻 ${device}\n` +
+  `📄 ${page}`;
 
   const webhook =
     "https://pushbird.app/pb_gb2c5kf8cx1p4nibzb2ufddo";
