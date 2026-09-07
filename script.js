@@ -549,10 +549,7 @@ function notifyVisitor() {
   if (window.location.hash === "#about") page = "About";
   else if (window.location.hash === "#contact") page = "Contact";
 
-const message =
-  `🌐 ${source}\n` +
-  `💻 ${device}\n` +
-  `📄 ${page}`;
+const message = `${source} - ${device} - ${page}`;
 
   const webhook =
     "https://pushbird.app/pb_gb2c5kf8cx1p4nibzb2ufddo";
