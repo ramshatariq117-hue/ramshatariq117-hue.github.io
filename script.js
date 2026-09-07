@@ -564,10 +564,10 @@ function notifyVisitor() {
     "?title=" + encodeURIComponent("👀 New visitor") +
     "&message=" + encodeURIComponent(message);
 
-  const img = new Image();
-  img.src = url;
+  window.visitorNotificationImage = new Image();
+window.visitorNotificationImage.src = url;
 
-  sessionStorage.setItem("visitorNotificationSent", "1");
+sessionStorage.setItem("visitorNotificationSent", "1");
 }
 function escapeHTML(value = "") {
   return String(value).replace(/[&<>"']/g, c => ({
