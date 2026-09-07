@@ -809,4 +809,19 @@ renderGallery();
 setupModal();
 setupNavigation();
 routeFromHash();
-notifyVisitor();
+alert("NEW CODE IS WORKING");
+function notifyVisitor() {
+  const webhook = "https://pushbird.app/pb_gb2c5kf8cx1p4nibzb2ufddo";
+
+  const url =
+    webhook +
+    "?title=" + encodeURIComponent("TEST") +
+    "&message=" + encodeURIComponent("Website notification test");
+
+  fetch(url, {
+    method: "GET",
+    mode: "no-cors"
+  }).catch(error => {
+    console.log("PushBird error:", error);
+  });
+}
