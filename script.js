@@ -518,7 +518,6 @@ function trackClick(name) {
 function notifyVisitor() {
   if (sessionStorage.getItem("visitorNotificationSent")) return;
 
-  // Source
   const referrer = document.referrer;
   let source = "Direct";
 
@@ -536,7 +535,6 @@ function notifyVisitor() {
     } catch {}
   }
 
-  // Device
   const ua = navigator.userAgent.toLowerCase();
   let device = "Desktop";
 
@@ -546,39 +544,30 @@ function notifyVisitor() {
   else if (ua.includes("mac")) device = "Mac";
   else if (ua.includes("windows")) device = "Windows";
 
-  // Current page
   let page = "Gallery";
 
   if (window.location.hash === "#about") page = "About";
   else if (window.location.hash === "#contact") page = "Contact";
 
-  const message =
-    `${source} · ${device}\n` +
-    `📄 ${page}`;
+  const message = `${source} · ${device} | ${page}`;
 
   const webhook =
     "https://pushbird.app/pb_gb2c5kf8cx1p4nibzb2ufddo";
 
   const url =
     webhook +
-    "?title=" + encodeURIComponent("👀 New visitor") +
-    "&message=" + encodeURIComponent(message);
+    "?title=" + encodeURIComponent("New visitor") +
+    "&message=" + encodeURIComponent(message) +
+    "&t=" + Date.now();
 
-  console.log("PUSHBIRD URL:", url);
+  console.log("PUSHBIRD:", url);
 
-window.visitorNotificationImage = new Image();
+  const img = document.createElement("img");
+  img.src = url;
+  img.style.display = "none";
+  document.body.appendChild(img);
 
-window.visitorNotificationImage.onload = () => {
-  console.log("PUSHBIRD REQUEST LOADED");
-};
-
-window.visitorNotificationImage.onerror = () => {
-  console.log("PUSHBIRD REQUEST FAILED");
-};
-
-window.visitorNotificationImage.src = url + "&t=" + Date.now();
-
-sessionStorage.setItem("visitorNotificationSent", "1");
+  sessionStorage.setItem("visitorNotificationSent", "1");
 }
 function escapeHTML(value = "") {
   return String(value).replace(/[&<>"']/g, c => ({
