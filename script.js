@@ -516,6 +516,8 @@ function trackClick(name) {
   }
 }
 function notifyVisitor() {
+  if (sessionStorage.getItem("visitorNotificationSent")) return;
+
   // Source
   const referrer = document.referrer;
   let source = "Direct";
@@ -565,7 +567,6 @@ function notifyVisitor() {
   const img = new Image();
   img.src = url;
 
-  // Prevent another notification during this browser session
   sessionStorage.setItem("visitorNotificationSent", "1");
 }
 function escapeHTML(value = "") {
