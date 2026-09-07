@@ -564,8 +564,19 @@ function notifyVisitor() {
     "?title=" + encodeURIComponent("👀 New visitor") +
     "&message=" + encodeURIComponent(message);
 
-  window.visitorNotificationImage = new Image();
-window.visitorNotificationImage.src = url;
+  console.log("PUSHBIRD URL:", url);
+
+window.visitorNotificationImage = new Image();
+
+window.visitorNotificationImage.onload = () => {
+  console.log("PUSHBIRD REQUEST LOADED");
+};
+
+window.visitorNotificationImage.onerror = () => {
+  console.log("PUSHBIRD REQUEST FAILED");
+};
+
+window.visitorNotificationImage.src = url + "&t=" + Date.now();
 
 sessionStorage.setItem("visitorNotificationSent", "1");
 }
