@@ -809,5 +809,4 @@ renderGallery();
 setupModal();
 setupNavigation();
 routeFromHash();
-alert("NEW CODE IS WORKING");
 notifyVisitor();
