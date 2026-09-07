@@ -805,22 +805,9 @@ function setupNavigation() {
   }
 }
  
-function notifyVisitor() {
-  const webhook = "https://pushbird.app/pb_gb2c5kf8cx1p4nibzb2ufddo";
-
-  const url =
-    webhook +
-    "?title=" + encodeURIComponent("TEST") +
-    "&message=" + encodeURIComponent("Website notification test");
-
-  const img = new Image();
-  img.src = url;
-}
-
 renderGallery();
 setupModal();
 setupNavigation();
 routeFromHash();
 
-alert("NEW CODE IS WORKING");
 notifyVisitor();
