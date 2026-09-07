@@ -805,23 +805,22 @@ function setupNavigation() {
   }
 }
  
-renderGallery();
-setupModal();
-setupNavigation();
-routeFromHash();
-alert("NEW CODE IS WORKING");
 function notifyVisitor() {
-  const webhook = "https://pushbird.app/pb_gb2c5kf8cx1p4nibzb2ufddo";
+  const webhook = "YOUR_PUSHBIRD_WEBHOOK_HERE";
 
   const url =
     webhook +
     "?title=" + encodeURIComponent("TEST") +
     "&message=" + encodeURIComponent("Website notification test");
 
-  fetch(url, {
-    method: "GET",
-    mode: "no-cors"
-  }).catch(error => {
-    console.log("PushBird error:", error);
-  });
+  const img = new Image();
+  img.src = url;
 }
+
+renderGallery();
+setupModal();
+setupNavigation();
+routeFromHash();
+
+alert("NEW CODE IS WORKING");
+notifyVisitor();
