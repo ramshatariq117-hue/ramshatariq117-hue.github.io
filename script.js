@@ -518,6 +518,21 @@ function trackClick(name) {
 function notifyVisitor() {
   if (sessionStorage.getItem("visitorNotificationSent")) return;
 
+  // Anonymous visitor ID
+  let visitorId = localStorage.getItem("visitorId");
+
+  if (!visitorId) {
+    visitorId = Math.random().toString(36).substring(2, 7).toUpperCase();
+    localStorage.setItem("visitorId", visitorId);
+  }
+
+  // Visit count
+  let visitCount = parseInt(localStorage.getItem("visitorVisitCount") || "0", 10);
+  visitCount++;
+  localStorage.setItem("visitorVisitCount", visitCount);
+
+  const isReturning = visitCount > 1;
+
   const referrer = document.referrer;
   let source = "Direct";
 
@@ -549,14 +564,19 @@ function notifyVisitor() {
   if (window.location.hash === "#about") page = "About";
   else if (window.location.hash === "#contact") page = "Contact";
 
-const message = `${source} - ${device} - ${page}`;
+  const title = isReturning ? "Returning visitor" : "New visitor";
+
+  const message =
+    `${isReturning ? "Returning" : "New"} visitor - ` +
+    `${visitorId} - Visit #${visitCount} - ` +
+    `${source} - ${device} - ${page}`;
 
   const webhook =
     "https://pushbird.app/pb_gb2c5kf8cx1p4nibzb2ufddo";
 
-const url =
+  const url =
     webhook +
-    "?title=" + encodeURIComponent("New visitor") +
+    "?title=" + encodeURIComponent(title) +
     "&message=" + encodeURIComponent(message);
 
   console.log("PUSHBIRD:", url);
