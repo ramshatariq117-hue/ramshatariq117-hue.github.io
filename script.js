@@ -515,11 +515,8 @@ function trackClick(name) {
     });
   }
 }
-async function notifyVisitor() {
+function notifyVisitor() {
   if (sessionStorage.getItem("visitorNotificationSent")) return;
-
-  // Mark this browser session immediately so we don't send duplicates
-  sessionStorage.setItem("visitorNotificationSent", "1");
 
   // Source
   const referrer = document.referrer;
@@ -555,39 +552,23 @@ async function notifyVisitor() {
   if (window.location.hash === "#about") page = "About";
   else if (window.location.hash === "#contact") page = "Contact";
 
-  // Send immediately with the information we already have
-  let message =
+  const message =
     `${source} · ${device}\n` +
     `📄 ${page}`;
 
-  const webhook = "https://pushbird.app/pb_gb2c5kf8cx1p4nibzb2ufddo";
-
-  // Try to add country, but don't let it prevent the notification
-  try {
-    const response = await Promise.race([
-      fetch("https://ipapi.co/json/").then(r => r.json()),
-      new Promise((_, reject) =>
-        setTimeout(() => reject(new Error("Country lookup timeout")), 3000)
-      )
-    ]);
-
-    if (response.country_name) {
-      message =
-        `🌍 ${response.country_name} · ${source} · ${device}\n` +
-        `📄 ${page}`;
-    }
-  } catch {}
+  const webhook =
+    "https://pushbird.app/pb_gb2c5kf8cx1p4nibzb2ufddo";
 
   const url =
     webhook +
     "?title=" + encodeURIComponent("👀 New visitor") +
     "&message=" + encodeURIComponent(message);
 
-  // Use an image request so the browser actually makes the GET request
   const img = new Image();
   img.src = url;
-}
 
+  sessionStorage.setItem("visitorNotificationSent", "1");
+}
 function escapeHTML(value = "") {
   return String(value).replace(/[&<>"']/g, c => ({
     "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#039;"
