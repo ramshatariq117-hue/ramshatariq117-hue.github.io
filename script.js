@@ -557,11 +557,10 @@ const message =
   const webhook =
     "https://pushbird.app/pb_gb2c5kf8cx1p4nibzb2ufddo";
 
-  const url =
+const url =
     webhook +
     "?title=" + encodeURIComponent("New visitor") +
-    "&message=" + encodeURIComponent(message) +
-    "&t=" + Date.now();
+    "&message=" + encodeURIComponent(message);
 
   console.log("PUSHBIRD:", url);
 
