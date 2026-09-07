@@ -1,13 +1,11 @@
 /*
 RAMSHA ART STUDIO — SINGLE-PAGE GITHUB VERSION
-
 IMPORTANT:
 1. Put painting photos inside the images folder.
 2. Change only the paintings list below when you want to add/edit paintings.
 3. Navigation is intentionally handled inside ONE index.html so About and Contact
    can never be accidentally swapped with Home on GitHub.
 */
-
 const paintings = [
     {
     image: "at-home.jpg",
@@ -267,7 +265,7 @@ const paintings = [
     status: "Sold",
     price: "350 USD (Shipping included)",
     size: "12 × 18 inches",
-    medium: "Oil on canvas",
+    medium: "Acrylic on canvas",
     description: ""
   },
    {
@@ -505,9 +503,7 @@ const paintings = [
     description: ""
   }
 ];
-
 const qs = (s) => document.querySelector(s);
-
 function trackClick(name) {
   if (typeof gtag === "function") {
     gtag("event", "site_click", {
@@ -515,31 +511,80 @@ function trackClick(name) {
     });
   }
 }
+/* =========================
+   VISITOR JOURNEY TRACKING
+   ========================= */
+function sendPushbird(title, message) {
+  const webhook =
+    "https://pushbird.app/pb_gb2c5kf8cx1p4nibzb2ufddo";
+  const url =
+    webhook +
+    "?title=" + encodeURIComponent(title) +
+    "&message=" + encodeURIComponent(message);
+  console.log("PUSHBIRD:", url);
+  const img = document.createElement("img");
+  img.src = url;
+  img.style.display = "none";
+  document.body.appendChild(img);
+}
+function trackJourney(action) {
+  let journey = sessionStorage.getItem("visitorJourney") || "Gallery";
+  // Don't add the exact same action twice in a row
+  if (!journey.endsWith(` → ${action}`)) {
+    journey += ` → ${action}`;
+  }
+  // Keep the journey to a reasonable length
+  const parts = journey.split(" → ");
+  if (parts.length > 20) {
+    parts.splice(1, parts.length - 20);
+  }
+  journey = parts.join(" → ");
+  sessionStorage.setItem("visitorJourney", journey);
+  console.log("VISITOR JOURNEY:", journey);
+}
+function sendJourneyUpdate() {
+  const journey = sessionStorage.getItem("visitorJourney");
+  const visitorId = localStorage.getItem("visitorId");
+  const visitCount = localStorage.getItem("visitorVisitCount");
+  if (!journey || !visitorId) return;
+  // Don't send the exact same journey twice
+  if (sessionStorage.getItem("visitorJourneySent") === journey) {
+    return;
+  }
+  const message =
+    `${visitorId} - Visit #${visitCount} - ${journey}`;
+  sendPushbird("Visitor activity", message);
+  sessionStorage.setItem("visitorJourneySent", journey);
+}
+function sendVisitorLeft() {
+  if (sessionStorage.getItem("visitorLeftNotificationSent")) return;
+  const journey = sessionStorage.getItem("visitorJourney");
+  const visitorId = localStorage.getItem("visitorId");
+  const visitCount = localStorage.getItem("visitorVisitCount");
+  if (!journey || !visitorId) return;
+  const message =
+    `${visitorId} - Visit #${visitCount} - ${journey} - Left`;
+  sendPushbird("Visitor left", message);
+  sessionStorage.setItem("visitorLeftNotificationSent", "1");
+}
 function notifyVisitor() {
   if (sessionStorage.getItem("visitorNotificationSent")) return;
-
   // Anonymous visitor ID
   let visitorId = localStorage.getItem("visitorId");
-
   if (!visitorId) {
     visitorId = Math.random().toString(36).substring(2, 7).toUpperCase();
     localStorage.setItem("visitorId", visitorId);
   }
-
   // Visit count
   let visitCount = parseInt(localStorage.getItem("visitorVisitCount") || "0", 10);
   visitCount++;
   localStorage.setItem("visitorVisitCount", visitCount);
-
   const isReturning = visitCount > 1;
-
   const referrer = document.referrer;
   let source = "Direct";
-
   if (referrer) {
     try {
       const host = new URL(referrer).hostname.toLowerCase();
-
       if (host.includes("reddit")) source = "Reddit";
       else if (host.includes("google")) source = "Google";
       else if (host.includes("instagram")) source = "Instagram";
@@ -549,43 +594,26 @@ function notifyVisitor() {
       else source = host.replace("www.", "");
     } catch {}
   }
-
   const ua = navigator.userAgent.toLowerCase();
   let device = "Desktop";
-
   if (ua.includes("iphone")) device = "iPhone";
   else if (ua.includes("ipad")) device = "iPad";
   else if (ua.includes("android")) device = "Android";
   else if (ua.includes("mac")) device = "Mac";
   else if (ua.includes("windows")) device = "Windows";
-
   let page = "Gallery";
-
   if (window.location.hash === "#about") page = "About";
   else if (window.location.hash === "#contact") page = "Contact";
-
+  // Start a fresh journey for this visit
+  sessionStorage.setItem("visitorJourney", page);
+  sessionStorage.removeItem("visitorJourneySent");
+  sessionStorage.removeItem("visitorLeftNotificationSent");
   const title = isReturning ? "Returning visitor" : "New visitor";
-
   const message =
     `${isReturning ? "Returning" : "New"} visitor - ` +
     `${visitorId} - Visit #${visitCount} - ` +
     `${source} - ${device} - ${page}`;
-
-  const webhook =
-    "https://pushbird.app/pb_gb2c5kf8cx1p4nibzb2ufddo";
-
-  const url =
-    webhook +
-    "?title=" + encodeURIComponent(title) +
-    "&message=" + encodeURIComponent(message);
-
-  console.log("PUSHBIRD:", url);
-
-  const img = document.createElement("img");
-  img.src = url;
-  img.style.display = "none";
-  document.body.appendChild(img);
-
+  sendPushbird(title, message);
   sessionStorage.setItem("visitorNotificationSent", "1");
 }
 function escapeHTML(value = "") {
@@ -593,11 +621,9 @@ function escapeHTML(value = "") {
     "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#039;"
   }[c]));
 }
-
 function renderGallery() {
   const gallery = qs("#gallery");
   if (!gallery) return;
-
   gallery.innerHTML = paintings.map((p, i) => `
     <article class="art-card">
       <button class="art-image-button" type="button" data-painting="${i}" aria-label="View ${escapeHTML(p.title)}">
@@ -620,7 +646,6 @@ height="${p.size.split('×')[1].replace(' inches','').trim() * 100}"
       </div>
     </article>
   `).join("");
-
   gallery.querySelectorAll(".art-image-button").forEach(button => {
   button.addEventListener("click", () => {
     const index = Number(button.dataset.painting);
@@ -633,7 +658,8 @@ function openPainting(index) {
   const p = paintings[index];
   const modal = qs("#painting-modal");
   if (!p || !modal) return;
-
+  // Record that the visitor opened/viewed this painting
+  trackJourney(`Viewed: ${p.title}`);
   qs("#modal-image").src = p.image;
   qs("#modal-image").alt = p.title;
   qs("#modal-title").textContent = p.title;
@@ -645,47 +671,36 @@ function openPainting(index) {
   qs("#modal-size").textContent = p.size;
   qs("#modal-medium").textContent = p.medium;
   qs("#modal-description").textContent = p.description || "";
-
   // Create a clean price for the personalized messages
   const cleanPrice = p.price
     .replace(/\s*\(Shipping included\)/i, "")
     .replace(/\s*USD/i, "")
     .trim();
-
   const displayPrice = `$${cleanPrice}`;
-
   // Personalized WhatsApp message
   const whatsappMessage =
     `Hi! I’m interested in purchasing “${p.title}” (${p.size}), listed at ${displayPrice} on your website. How do I move forward with the purchase?`;
-
   qs("#modal-whatsapp").href =
     `https://wa.me/923200961510?text=${encodeURIComponent(whatsappMessage)}`;
-
   // Personalized email
   const emailSubject = `Inquiry about “${p.title}”`;
-
   const emailBody =
     `Hi Ramsha,\n\n` +
     `I’m interested in purchasing “${p.title}” (${p.size}), listed at ${displayPrice} on your website. How do I move forward with the purchase?\n\n` +
     `Thank you!`;
-
   qs("#modal-email").href =
     `mailto:ramshatariq117@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-
   // Change wording depending on availability
   const contactHeading = qs("#modal-contact-heading");
-
   if (p.status.toLowerCase() === "available") {
     contactHeading.textContent = "Interested in purchasing this artwork? Purchase below.";
   } else {
     contactHeading.textContent = "Interested in a recreation? Contact below.";
   }
-
   modal.classList.add("open");
   modal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
 }
-
 function closePainting() {
   const modal = qs("#painting-modal");
   if (!modal) return;
@@ -693,62 +708,58 @@ function closePainting() {
   modal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("modal-open");
 }
-
 function setupModal() {
   const modal = qs("#painting-modal");
   if (!modal) return;
-
   qs("#modal-close").addEventListener("click", closePainting);
-
   modal.addEventListener("click", (event) => {
     if (event.target === modal) closePainting();
   });
-
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closePainting();
   });
-
   qs("#modal-whatsapp").addEventListener("click", () => {
     const title = qs("#modal-title").textContent;
     trackClick(`Painting inquiry: WhatsApp — ${title}`);
+    trackJourney(`WhatsApp: ${title}`);
   });
-
   qs("#modal-email").addEventListener("click", () => {
     const title = qs("#modal-title").textContent;
     trackClick(`Painting inquiry: Email — ${title}`);
+    trackJourney(`Email: ${title}`);
   });
-
   qs("#modal-instagram").addEventListener("click", () => {
     const title = qs("#modal-title").textContent;
     trackClick(`Painting inquiry: Instagram — ${title}`);
+    trackJourney(`Instagram: ${title}`);
   });
 }
-
 function showPage(page) {
   const valid = ["home", "about", "contact"];
   if (!valid.includes(page)) page = "home";
-
   document.querySelectorAll(".site-page").forEach(section => {
     section.hidden = section.id !== `page-${page}`;
   });
-
   document.querySelectorAll("[data-page]").forEach(link => {
     link.setAttribute("aria-current", link.dataset.page === page ? "page" : "false");
   });
-
+  // Track page changes in the visitor journey
+  if (page === "about") {
+    trackJourney("About");
+  }
+  if (page === "contact") {
+    trackJourney("Contact");
+  }
   document.title = page === "home"
     ? "Ramsha Art Studio — Original Paintings"
     : `${page.charAt(0).toUpperCase() + page.slice(1)} — Ramsha Art Studio`;
-
   window.scrollTo({ top: 0, behavior: "auto" });
   closeMobileMenu();
 }
-
 function routeFromHash() {
   const page = (window.location.hash || "#home").slice(1).toLowerCase();
   showPage(page);
 }
-
 function closeMobileMenu() {
   const button = qs(".menu-button");
   const menu = qs(".mobile-menu");
@@ -756,44 +767,38 @@ function closeMobileMenu() {
   menu.classList.remove("open");
   button.setAttribute("aria-expanded", "false");
 }
-
 function setupNavigation() {
   window.addEventListener("hashchange", routeFromHash);
-
   document.querySelectorAll("[data-page]").forEach(link => {
     link.addEventListener("click", () => {
       trackClick(`Navigation: ${link.dataset.page}`);
       closePainting();
     });
   });
-
   document.querySelectorAll(".contact-card").forEach(link => {
     const label = link.querySelector("span:last-child")?.textContent.trim();
-
     if (label) {
       link.addEventListener("click", () => {
         trackClick(`Contact: ${label}`);
+        trackJourney(`Contact: ${label}`);
       });
     }
   });
-
   document.querySelectorAll(".bottom-bar a").forEach(link => {
     const label = link.textContent.trim();
-
     link.addEventListener("click", () => {
       trackClick(`Bottom bar: ${label}`);
+      trackJourney(`Bottom bar: ${label}`);
     });
   });
-
   document.querySelectorAll('a[href="https://ramsha-art-studio.beehiiv.com/"]').forEach(link => {
     link.addEventListener("click", () => {
       trackClick("Mailing list");
+      trackJourney("Mailing list");
     });
   });
-
   const button = qs(".menu-button");
   const menu = qs(".mobile-menu");
-
   if (button && menu) {
     button.addEventListener("click", () => {
       const open = menu.classList.toggle("open");
@@ -801,10 +806,24 @@ function setupNavigation() {
     });
   }
 }
- 
 renderGallery();
 setupModal();
 setupNavigation();
 routeFromHash();
-
 notifyVisitor();
+/* =========================
+   PERIODIC JOURNEY UPDATES
+   ========================= */
+// Every 30 seconds, send an update only if the journey has changed.
+setInterval(() => {
+  sendJourneyUpdate();
+}, 30000);
+/* =========================
+   FINAL VISITOR EXIT
+   ========================= */
+// Try to send the final journey when the page actually unloads.
+// We intentionally do NOT use visibilitychange for "Left",
+// because switching to another browser tab should not count as leaving.
+window.addEventListener("pagehide", () => {
+  sendVisitorLeft();
+});
