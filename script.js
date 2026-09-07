@@ -518,77 +518,74 @@ function trackClick(name) {
 async function notifyVisitor() {
   if (sessionStorage.getItem("visitorNotificationSent")) return;
 
-  try {
-    sessionStorage.setItem("visitorNotificationSent", "1");
+  // Mark this browser session immediately so we don't send duplicates
+  sessionStorage.setItem("visitorNotificationSent", "1");
 
-    // Source
-    const referrer = document.referrer;
-    let source = "Direct";
+  // Source
+  const referrer = document.referrer;
+  let source = "Direct";
 
-    if (referrer) {
-      try {
-        const host = new URL(referrer).hostname.toLowerCase();
-
-        if (host.includes("reddit")) source = "Reddit";
-        else if (host.includes("google")) source = "Google";
-        else if (host.includes("instagram")) source = "Instagram";
-        else if (host.includes("facebook")) source = "Facebook";
-        else if (host.includes("pinterest")) source = "Pinterest";
-        else if (host.includes("bing")) source = "Bing";
-        else source = host.replace("www.", "");
-      } catch {}
-    }
-
-    // Device
-    const ua = navigator.userAgent.toLowerCase();
-    let device = "Desktop";
-
-    if (ua.includes("iphone")) device = "iPhone";
-    else if (ua.includes("ipad")) device = "iPad";
-    else if (ua.includes("android")) device = "Android";
-    else if (ua.includes("mac")) device = "Mac";
-    else if (ua.includes("windows")) device = "Windows";
-
-    // Current page
-    let page = "Gallery";
-
-    if (window.location.hash === "#about") page = "About";
-    else if (window.location.hash === "#contact") page = "Contact";
-
-    // Country
-    let country = "";
-
+  if (referrer) {
     try {
-      const response = await fetch("https://ipapi.co/json/");
-      const location = await response.json();
+      const host = new URL(referrer).hostname.toLowerCase();
 
-      if (location.country_name) {
-        country = location.country_name;
-      }
+      if (host.includes("reddit")) source = "Reddit";
+      else if (host.includes("google")) source = "Google";
+      else if (host.includes("instagram")) source = "Instagram";
+      else if (host.includes("facebook")) source = "Facebook";
+      else if (host.includes("pinterest")) source = "Pinterest";
+      else if (host.includes("bing")) source = "Bing";
+      else source = host.replace("www.", "");
     } catch {}
-
-    const countryPart = country ? `🌍 ${country} · ` : "";
-
-    const message =
-      `${countryPart}${source} · ${device}\n` +
-      `📄 ${page}`;
-
-    // YOUR PUSHBIRD WEBHOOK
-    const webhook = "https://pushbird.app/pb_gb2c5kf8cx1p4nibzb2ufddo";
-
-    const url =
-      webhook +
-      "?title=" + encodeURIComponent("👀 New visitor") +
-      "&message=" + encodeURIComponent(message);
-
-    fetch(url, {
-      method: "GET",
-      mode: "no-cors"
-    }).catch(() => {});
-
-  } catch (error) {
-    console.log("Visitor notification error:", error);
   }
+
+  // Device
+  const ua = navigator.userAgent.toLowerCase();
+  let device = "Desktop";
+
+  if (ua.includes("iphone")) device = "iPhone";
+  else if (ua.includes("ipad")) device = "iPad";
+  else if (ua.includes("android")) device = "Android";
+  else if (ua.includes("mac")) device = "Mac";
+  else if (ua.includes("windows")) device = "Windows";
+
+  // Current page
+  let page = "Gallery";
+
+  if (window.location.hash === "#about") page = "About";
+  else if (window.location.hash === "#contact") page = "Contact";
+
+  // Send immediately with the information we already have
+  let message =
+    `${source} · ${device}\n` +
+    `📄 ${page}`;
+
+  const webhook = "https://pushbird.app/pb_gb2c5kf8cx1p4nibzb2ufddo";
+
+  // Try to add country, but don't let it prevent the notification
+  try {
+    const response = await Promise.race([
+      fetch("https://ipapi.co/json/").then(r => r.json()),
+      new Promise((_, reject) =>
+        setTimeout(() => reject(new Error("Country lookup timeout")), 3000)
+      )
+    ]);
+
+    if (response.country_name) {
+      message =
+        `🌍 ${response.country_name} · ${source} · ${device}\n` +
+        `📄 ${page}`;
+    }
+  } catch {}
+
+  const url =
+    webhook +
+    "?title=" + encodeURIComponent("👀 New visitor") +
+    "&message=" + encodeURIComponent(message);
+
+  // Use an image request so the browser actually makes the GET request
+  const img = new Image();
+  img.src = url;
 }
 
 function escapeHTML(value = "") {
