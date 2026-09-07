@@ -806,7 +806,7 @@ function setupNavigation() {
 }
  
 function notifyVisitor() {
-  const webhook = "YOUR_PUSHBIRD_WEBHOOK_HERE";
+  const webhook = "https://pushbird.app/pb_gb2c5kf8cx1p4nibzb2ufddo";
 
   const url =
     webhook +
