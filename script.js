@@ -17,6 +17,15 @@ const paintings = [
     description: ""
   },
    {
+    image: "a-quiet-december.jpg",
+    title: "A Quiet December",
+    status: "Available",
+    price: "270 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
     image: "the-orange-hour.jpg",
     title: "The Orange Hour",
     status: "Available",
