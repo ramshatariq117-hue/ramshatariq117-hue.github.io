@@ -35,6 +35,15 @@ const paintings = [
     description: ""
   },
    {
+    image: "someone-is-watching.jpg",
+    title: "Someone is Watching",
+    status: "Sold",
+    price: "470 USD (Shipping included)",
+    size: "18 × 24 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
     image: "Anemoia.jpg",
     title: "Anemoia",
     status: "Sold",
@@ -76,15 +85,6 @@ const paintings = [
     status: "Sold",
     price: "350 USD (Shipping included)",
     size: "12 × 18 inches",
-    medium: "Acrylic on canvas",
-    description: ""
-  },
-   {
-    image: "someone-is-watching.jpg",
-    title: "Someone is Watching",
-    status: "Sold",
-    price: "550 USD (Shipping included)",
-    size: "18 × 24 inches",
     medium: "Acrylic on canvas",
     description: ""
   },
