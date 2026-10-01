@@ -7,15 +7,6 @@ IMPORTANT:
    can never be accidentally swapped with Home on GitHub.
 */
 const paintings = [
-    {
-    image: "at-home.jpg",
-    title: "At Home",
-    status: "Available",
-    price: "450 USD (Shipping included)",
-    size: "18 × 24 inches",
-    medium: "Acrylic on canvas",
-    description: ""
-  },
    {
     image: "a-quiet-december.jpg",
     title: "A Quiet December",
@@ -26,9 +17,27 @@ const paintings = [
     description: ""
   },
    {
+    image: "a-distant-memory.jpeg",
+    title: "A Distant Memory",
+    status: "Available",
+    price: "130 USD (Shipping included)",
+    size: "8 × 8 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
+    image: "at-home.jpg",
+    title: "At Home",
+    status: "Available",
+    price: "450 USD (Shipping included)",
+    size: "18 × 24 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
     image: "the-orange-hour.jpg",
     title: "The Orange Hour",
-    status: "Available",
+    status: "Sold",
     price: "200 USD (Shipping included)",
     size: "10 × 10 inches",
     medium: "Acrylic on canvas",
