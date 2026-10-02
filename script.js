@@ -16,6 +16,15 @@ const paintings = [
     medium: "Acrylic on canvas",
     description: ""
   },
+    {
+    image: "christmas-again.JPG",
+    title: "Christmas Again",
+    status: "Available",
+    price: "380 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Mixed media on canvas",
+    description: ""
+  },
    {
     image: "a-distant-memory.jpeg",
     title: "A Distant Memory",
