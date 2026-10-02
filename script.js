@@ -17,7 +17,7 @@ const paintings = [
     description: ""
   },
     {
-    image: "christmas-again.JPG",
+    image: "Christmas-again.JPG",
     title: "Christmas Again",
     status: "Available",
     price: "380 USD (Shipping included)",
