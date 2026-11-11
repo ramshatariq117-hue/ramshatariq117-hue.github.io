@@ -8,21 +8,48 @@ IMPORTANT:
 */
 const paintings = [
    {
-    image: "a-quiet-december.jpg",
-    title: "A Quiet December",
-    status: "Available",
-    price: "270 USD (Shipping included)",
-    size: "12 × 18 inches",
-    medium: "Acrylic on canvas",
-    description: ""
-  },
-    {
     image: "Christmas-again.JPG",
     title: "Christmas Again",
     status: "Available",
     price: "380 USD (Shipping included)",
     size: "12 × 18 inches",
     medium: "Mixed media on canvas",
+    description: ""
+  },
+   {
+    image: "the-amber-hour.jpg",
+    title: "The Amber Hour",
+    status: "Available",
+    price: "130 USD (Shipping included)",
+    size: "7.5 × 7.5 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
+    image: "blue-haze.jpg",
+    title: "Blue Haze",
+    status: "Available",
+    price: "130 USD (Shipping included)",
+    size: "8 × 8 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
+    image: "a-little-beyond.jpg",
+    title: "A Little Beyond",
+    status: "Available",
+    price: "130 USD (Shipping included)",
+    size: "8 × 8 inches",
+    medium: "Acrylic on canvas",
+    description: ""
+  },
+   {
+    image: "a-quiet-december.jpg",
+    title: "A Quiet December",
+    status: "Sold",
+    price: "270 USD (Shipping included)",
+    size: "12 × 18 inches",
+    medium: "Acrylic on canvas",
     description: ""
   },
    {
