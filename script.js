@@ -55,7 +55,7 @@ const paintings = [
    {
     image: "a-distant-memory.jpeg",
     title: "A Distant Memory",
-    status: "Available",
+    status: "Sold",
     price: "130 USD (Shipping included)",
     size: "8 × 8 inches",
     medium: "Acrylic on canvas",
