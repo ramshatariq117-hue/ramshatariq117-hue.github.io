@@ -11,7 +11,7 @@ const paintings = [
     image: "Christmas-again.JPG",
     title: "Christmas Again",
     status: "Available",
-    price: "380 USD (Shipping included)",
+    price: "300 USD (Shipping included)",
     size: "12 × 18 inches",
     medium: "Mixed media on canvas",
     description: ""
